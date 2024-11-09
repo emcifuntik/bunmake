@@ -146,5 +146,4 @@ dist
 /bin
 
 # Ignore test files
-/bunmake.js
-/bunmake.ts
+/test/build

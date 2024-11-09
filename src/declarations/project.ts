@@ -1,6 +1,6 @@
 import { Configuration } from "./configuration.js";
 import { Language, LibraryType, ProjectType } from "./enums.js";
-
+import { resolve } from "path";
 
 export class Project {
   private name: string;
@@ -26,6 +26,10 @@ export class Project {
 
   addSourceFiles(...files: string[]): void
   {
+    for (let i = 0; i < files.length; i++)
+    {
+      files[i] = resolve(files[i]);
+    }
     this.sourceFiles.push(...files);
   }
 

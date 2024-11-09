@@ -69,7 +69,7 @@ module "bunmake" {
     private name: string;
     private projects: Project[];
 
-    createProject(projectName: string, language: Language, type: ProjectType, libraryType: LibraryType): Project;
+    createProject(projectName: string, language?: Language, type?: ProjectType, libraryType?: LibraryType): Project;
     getProjects(): Project[];
     getProject(name: string): Project | undefined;
     getName(): string;

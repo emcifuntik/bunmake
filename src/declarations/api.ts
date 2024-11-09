@@ -1,12 +1,7 @@
 import { Configuration } from "./configuration.js";
 import { TemplateConfiguration } from "./enums.js";
 import { Workspace } from "./workspace.js";
-
-declare global {
-  var __workspaces: Workspace[];
-}
-
-global.__workspaces = [];
+import { setCurrentWorkspace } from "../workspacesCollection.js"
 
 export function createConfiguration(name: string, from: TemplateConfiguration = TemplateConfiguration.Empty): Configuration {
   if (from === TemplateConfiguration.Debug) {
@@ -19,6 +14,6 @@ export function createConfiguration(name: string, from: TemplateConfiguration = 
 
 export function createWorkspace(name: string): Workspace {
   const workspace = new Workspace(name);
-  global.__workspaces.push(workspace);
+  setCurrentWorkspace(workspace);
   return workspace;
 }
